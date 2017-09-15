@@ -1,5 +1,7 @@
 # React-Walkway
 
+![Skylines Demo](https://media.giphy.com/media/3ohhww40hzbdsHEHUk/giphy.gif)
+
 The [Walkway](https://github.com/ConnorAtherton/walkway) library is one of my favorites and I made this wrapper library so it could be easily used in a react application.
 
 It supports `path`, `line` and `polyline` elements.
