@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -36,7 +38,7 @@ var Walkway = function (_React$Component) {
 
     var randomId = Math.random().toString(36).substr(2, 5);
     _this.id = SVG_ID_SELECTOR + '_' + randomId;
-    _this.selector = '#' + _this.id + ' > svg';
+    _this.selector = '#' + _this.id + ' svg';
 
     // Walkway.js allows passing in just a selector
     // but it's simplest if it's just rolled into the options
@@ -60,11 +62,17 @@ var Walkway = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { id: this.id },
-        _react2.default.createElement(this.props.svg)
-      );
+      if (_typeof(this.props.svg) === 'object') {
+        return _react2.default.createElement(
+          'div',
+          { id: this.id },
+          this.props.svg
+        );
+      } else if (typeof this.props.svg === 'string') {
+        return _react2.default.createElement('div', { id: this.id, dangerouslySetInnerHTML: { __html: this.props.svg } });
+      }
+      console.error('WalkwayJS: this.props.svg must be a string or a JSX element');
+      return null;
     }
   }]);
 
