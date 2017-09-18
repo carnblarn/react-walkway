@@ -14,7 +14,7 @@
   },
   "name": "react-walkway",
   "description": "A simple React wrapper for walkway.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "build/index.js",
   "devDependencies": {
     "eslint": "^4.6.1",
