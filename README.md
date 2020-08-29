@@ -52,3 +52,7 @@ const Drawing = () => {
     easing?: WalkwayEasingPresets | ((t: number) => number);
   };
 ```
+
+## v1 -> v2 Breaking Changes
+
+The `svg` prop no longer accepts raw strings, it must be a JSX element
